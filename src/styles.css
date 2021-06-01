@@ -32,6 +32,8 @@
 .data {
     width: 70%;
     margin: 3rem auto 0 auto;
+    min-width: 600px;
+    overflow: hidden;
 }
 
 .selection {
@@ -42,6 +44,9 @@
 .left-side,
 .right-side{
     cursor: pointer;
+}
+.left-side{
+    margin-top: 15px;
 }
 .left-side i,
 .right-side i {
@@ -247,19 +252,16 @@ table tr th:first-child {
 }
 
 .login{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 38%;
-    margin: 0 auto;
+    width: 40%;
+    margin: 14vh auto 0 auto;
     background: white;
     box-shadow: 1px 1px 50px rgba(0,0,0,0.4);
     border-radius: 7px;
 }
 .login form{
     width: 80%;
-    margin: 1.5rem auto;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 .login label{
     font-size: 17px;
@@ -274,7 +276,7 @@ table tr th:first-child {
     font-weight: 400;
     margin-bottom: 10px;
     border-radius: 5px;
-
+    display: none;
 }
 .login input{
     width: 90%;
@@ -309,8 +311,9 @@ table tr th:first-child {
 }
 .account{
     width: 80%;
-    margin: 0 auto 20px auto;
-    font-size: 15px
+    margin: 0 auto;
+    font-size: 15px;
+    padding-bottom: 20px;
 }
 .account a{
     text-decoration: none;
@@ -320,7 +323,11 @@ table tr th:first-child {
     text-decoration: underline;
 }
 
-
+@media(min-width: 1536px){
+    .login{
+        width: 651px
+    }
+}
 
 
 @media(max-width:600px){
@@ -372,10 +379,11 @@ table tr th:first-child {
     outline: none;
     border: none;
     border-radius: 5px;
-    background: green;
+    background: rgba(0,0,0,0.3);
     font-size: 18px;
 }
 .time button:hover{
-    background: #27AE60;
+    background: rgba(0,0,0,0.2);
     cursor: pointer;
 }
+
