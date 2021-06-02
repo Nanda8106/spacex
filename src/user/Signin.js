@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Link, Redirect} from "react-router-dom";
 import {authenticate, isAuthenticated, signin } from "../auth/helper";
+import Loading from "../core/Loading"
 import Base from "../core/Base";
 import "../styles.css"
 
@@ -29,6 +30,7 @@ const Signin = () => {
         .then(data => {
             if(data.error){
                 setValues({...values, error:data.error, success:false, loading:false})
+                console.log(data.error)
             }
             else{
                 authenticate(data, () => {
@@ -46,6 +48,12 @@ const Signin = () => {
             }
         })
 
+    }
+
+    const didLoading = (loading) => {
+        if(loading){
+            return <Loading type="spin" color="#fffff"/>
+        }
     }
 
     const successMessage = () => {
@@ -90,6 +98,7 @@ const Signin = () => {
     }
     return (
         <Base>
+            {loading && (<Loading type="spin" color="#fffff"/>)}
             {signinForm()}
             {didRedirect()}
         </Base>
